@@ -2,18 +2,57 @@
 // To add a new tool (e.g. an open-source GitHub project), add it to the right cluster here
 // and register its component in DashboardTabs.
 
+import {
+  House,
+  Fingerprint,
+  Siren,
+  HeartHandshake,
+  GraduationCap,
+  ShieldCheck,
+  Bell,
+  MonitorSmartphone,
+  LayoutDashboard,
+  Target,
+  Briefcase,
+  Users,
+  MessageSquare,
+  Mic,
+  ClipboardCheck,
+  Zap,
+  Brain,
+  Bot,
+  ShieldHalf,
+  Wand2,
+  WifiOff,
+  Palette,
+  Megaphone,
+  Smartphone,
+  Globe,
+  FlaskConical,
+  Lightbulb,
+  FileText,
+  Plug,
+  RefreshCw,
+  HeartPulse,
+  Radar,
+  TrendingUp,
+  UserRound,
+  Cpu,
+  type LucideIcon,
+} from 'lucide-react';
+
 export type ClusterId = 'human' | 'collaborative' | 'agentic';
 
 export interface NavTool {
   id: string;
   label: string;
-  icon: string;
+  icon: LucideIcon;
 }
 
 export interface Cluster {
   id: ClusterId;
   label: string;
-  icon: string;
+  icon: LucideIcon;
   tagline: string;
   tools: NavTool[];
 }
@@ -22,58 +61,58 @@ export const clusters: Cluster[] = [
   {
     id: 'human',
     label: 'Human Center',
-    icon: '👤',
+    icon: UserRound,
     tagline: 'Human judgment, safety, verification and real-world action',
     tools: [
-      { id: 'workstation', label: 'My Workstation', icon: '🏠' },
-      { id: 'trust-screening', label: 'Trust & Identity Screening', icon: '🔍' },
-      { id: 'survival', label: 'Survival Hub', icon: '🚨' },
-      { id: 'humanitarian', label: 'Humanitarian', icon: '🌍' },
-      { id: 'education', label: 'Education', icon: '🎓' },
-      { id: 'security', label: 'Security Center', icon: '🔒' },
-      { id: 'notifications', label: 'Notifications', icon: '🔔' },
-      { id: 'desktop', label: 'Desktop Apps', icon: '💻' },
+      { id: 'workstation', label: 'My Workstation', icon: House },
+      { id: 'trust-screening', label: 'Trust & Identity Screening', icon: Fingerprint },
+      { id: 'survival', label: 'Survival Hub', icon: Siren },
+      { id: 'humanitarian', label: 'Humanitarian', icon: HeartHandshake },
+      { id: 'education', label: 'Education', icon: GraduationCap },
+      { id: 'security', label: 'Security Center', icon: ShieldCheck },
+      { id: 'notifications', label: 'Notifications', icon: Bell },
+      { id: 'desktop', label: 'Desktop Apps', icon: MonitorSmartphone },
     ],
   },
   {
     id: 'collaborative',
     label: 'Collaborative Space',
-    icon: '🤝',
+    icon: Users,
     tagline: 'Where humans and agents plan, decide and review together',
     tools: [
-      { id: 'overview', label: 'Overview', icon: '📊' },
-      { id: 'mission', label: 'Mission Control', icon: '🎯' },
-      { id: 'boardroom', label: 'Boardroom', icon: '👔' },
-      { id: 'collaboration', label: 'Agent Collaboration', icon: '👥' },
-      { id: 'communication', label: 'Communication', icon: '💬' },
-      { id: 'voice', label: 'Voice Control', icon: '🎤' },
-      { id: 'evaluation', label: 'Evaluation', icon: '📋' },
-      { id: 'actions', label: 'Quick Actions', icon: '⚡' },
-      { id: 'insights', label: 'AI Insights', icon: '🧠' },
+      { id: 'overview', label: 'Overview', icon: LayoutDashboard },
+      { id: 'mission', label: 'Mission Control', icon: Target },
+      { id: 'boardroom', label: 'Boardroom', icon: Briefcase },
+      { id: 'collaboration', label: 'Agent Collaboration', icon: HeartHandshake },
+      { id: 'communication', label: 'Communication', icon: MessageSquare },
+      { id: 'voice', label: 'Voice Control', icon: Mic },
+      { id: 'evaluation', label: 'Evaluation', icon: ClipboardCheck },
+      { id: 'actions', label: 'Quick Actions', icon: Zap },
+      { id: 'insights', label: 'AI Insights', icon: Brain },
     ],
   },
   {
     id: 'agentic',
     label: 'Agentic Center',
-    icon: '🤖',
+    icon: Cpu,
     tagline: 'Autonomous agents, models, automation and generation',
     tools: [
-      { id: 'agents', label: 'Agent Framework', icon: '🤖' },
-      { id: 'specialized', label: 'Specialized Agents', icon: '🛡️' },
-      { id: 'designer', label: 'Agent Designer', icon: '🎨' },
-      { id: 'offline', label: 'Offline Models', icon: '📴' },
-      { id: 'creative', label: 'Creative Studio', icon: '🖌️' },
-      { id: 'marketing', label: 'Marketing AI', icon: '📢' },
-      { id: 'social', label: 'Social Media', icon: '📱' },
-      { id: 'web', label: 'Web Development', icon: '🌐' },
-      { id: 'innovation', label: 'Innovation Hub', icon: '🔬' },
-      { id: 'invention', label: 'Invention Hub', icon: '💡' },
-      { id: 'templates', label: 'Template Toolkit', icon: '🧾' },
-      { id: 'integrations', label: 'Integrations', icon: '🔗' },
-      { id: 'ifttt', label: 'IFTTT Automation', icon: '🔄' },
-      { id: 'health', label: 'System Health', icon: '💗' },
-      { id: 'monitoring', label: 'Real-Time Monitor', icon: '📡' },
-      { id: 'analytics', label: 'Advanced Analytics', icon: '📈' },
+      { id: 'agents', label: 'Agent Framework', icon: Bot },
+      { id: 'specialized', label: 'Specialized Agents', icon: ShieldHalf },
+      { id: 'designer', label: 'Agent Designer', icon: Wand2 },
+      { id: 'offline', label: 'Offline Models', icon: WifiOff },
+      { id: 'creative', label: 'Creative Studio', icon: Palette },
+      { id: 'marketing', label: 'Marketing AI', icon: Megaphone },
+      { id: 'social', label: 'Social Media', icon: Smartphone },
+      { id: 'web', label: 'Web Development', icon: Globe },
+      { id: 'innovation', label: 'Innovation Hub', icon: FlaskConical },
+      { id: 'invention', label: 'Invention Hub', icon: Lightbulb },
+      { id: 'templates', label: 'Template Toolkit', icon: FileText },
+      { id: 'integrations', label: 'Integrations', icon: Plug },
+      { id: 'ifttt', label: 'IFTTT Automation', icon: RefreshCw },
+      { id: 'health', label: 'System Health', icon: HeartPulse },
+      { id: 'monitoring', label: 'Real-Time Monitor', icon: Radar },
+      { id: 'analytics', label: 'Advanced Analytics', icon: TrendingUp },
     ],
   },
 ];

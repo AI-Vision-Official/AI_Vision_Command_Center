@@ -69,7 +69,7 @@ export const SettingsDialog = ({ open, onOpenChange }: SettingsDialogProps) => {
             Settings
           </DialogTitle>
           <DialogDescription>
-            Configure your AI Agent Command Center preferences and settings.
+            Configure your AI Vision Command Center preferences and settings.
           </DialogDescription>
         </DialogHeader>
 
@@ -137,7 +137,7 @@ export const SettingsDialog = ({ open, onOpenChange }: SettingsDialogProps) => {
                     placeholder="e.g., Dream Factory, Innovation Hub, Creative Command..."
                   />
                   <p className="text-sm text-gray-500">
-                    This will replace "AI Agent Command Center" throughout the interface
+                    This will replace "AI Vision Command Center" throughout the interface
                   </p>
                 </div>
               )}
