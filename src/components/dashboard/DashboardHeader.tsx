@@ -8,7 +8,7 @@ import { SettingsDialog } from './SettingsDialog';
 export const DashboardHeader = () => {
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
   const [isSettingsDialogOpen, setIsSettingsDialogOpen] = useState(false);
-  const [appName, setAppName] = useState('AI Agent Command Center');
+  const [appName, setAppName] = useState('AI Vision Command Center');
 
   useEffect(() => {
     // Load custom app name from localStorage or settings
