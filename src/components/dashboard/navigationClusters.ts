@@ -38,6 +38,7 @@ import {
   TrendingUp,
   UserRound,
   Cpu,
+  Sparkles,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -98,6 +99,7 @@ export const clusters: Cluster[] = [
     tagline: 'Autonomous agents, models, automation and generation',
     tools: [
       { id: 'agents', label: 'Agent Framework', icon: Bot },
+      { id: 'skills', label: 'Skill Center', icon: Sparkles },
       { id: 'specialized', label: 'Specialized Agents', icon: ShieldHalf },
       { id: 'designer', label: 'Agent Designer', icon: Wand2 },
       { id: 'offline', label: 'Offline Models', icon: WifiOff },
