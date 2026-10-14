@@ -6,7 +6,7 @@ Structural Architecture
 [ 👤 Human Center ]   [ 🤝 Collaborative Space ]   [ 🤖 Agentic Center ]
 └────────────────────────────────────────────────────────────────────────┘
 
-1. 👤 Human Center (Human Agency, Safety & Verification)
+ ## 1. 👤 Human Center (Human Agency, Safety & Verification)
 
 Where the human is in control, conducting real-world research, preparedness, and personal operations:
 
@@ -16,7 +16,7 @@ Personal Workstation (Daily focus tasks, quick personal tools)
 Education & Credentials (Certificate manager, milestone tracking)
 System Settings & Local Vault (Desktop integration, offline storage)
 
-2. 🤝 Collaborative Space (The Human-Agent Synergy Bridge)
+ ## 2. 🤝 Collaborative Space (The Human-Agent Synergy Bridge)
 
 The shared ground where humans guide, inspect, and co-create alongside AI agents:
 
@@ -26,7 +26,7 @@ Boardroom & Strategic Planning (Master planning, daily logs, ethical checks, col
 Evaluation & Feedback (Review history, performance metrics, agent alignment scoring)
 Voice & Chat Interface (Direct communication and command dispatching)
 
-3. 🤖 Agentic Center (Autonomous Systems & Generative Engines)
+ ## 3. 🤖 Agentic Center (Autonomous Systems & Generative Engines)
 
 The engine room where specialized agents and generative workflows run:
 
@@ -37,19 +37,19 @@ Marketing & Outreach (Campaign manager, SEO optimizer, social media scheduler)
 Automation & Integrations (IFTTT rule builder, webhooks, connected platforms)
 Code & Invention (Web development center, patent helper, prototype tracker)
 
-Implementation Plan
+ ## Implementation Plan
 
 Update Navigation (DashboardNavigation.tsx):
 Implement a clean top-tier selector for the three major domains: Human Center, Collaborative Space, and Agentic Center.
 Sub-tabs dynamically filter based on the active domain, drastically reducing visual noise while retaining instant access.
 Add open-source badges/credits area for third-party tools.
 
-Organize Content Router (DashboardTabs.tsx):
+## Organize Content Router (DashboardTabs.tsx)
 
 Map each tool into its proper operational domain with clean fallback routing.
 Maintain state so switching between domains preserves the active tool within that domain.
 
-Open Source Attribution Ready:
+## Open Source Attribution Ready:
 
 Establish a clean format for open-source acknowledgments so external contributors from GitHub can see where and how tools are integrated.# Welcome to your Lovable project
 
