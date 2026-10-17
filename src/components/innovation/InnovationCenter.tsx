@@ -106,7 +106,7 @@ export const InnovationCenter = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-bold">🔬 Innovation Hub (Chris)</h2>
+          <h2 className="text-2xl font-bold">🔬 Innovation Hub</h2>
           <p className="text-gray-600 mt-1">
             Capture, develop, and prototype your musical and technical innovations
           </p>
