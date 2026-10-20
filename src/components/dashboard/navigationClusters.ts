@@ -30,6 +30,7 @@ export const toolRegistry: Record<string, NavTool> = Object.fromEntries(
   [
     t('workstation', 'My Workstation', House, 'human', 'Your personal start page'),
     t('trust-screening', 'Trust & Identity Screening', Fingerprint, 'human', 'Verify people, photos and sources'),
+    t('osint', 'OSINT Dashboard', Radar, 'human', 'Disasters, warnings, webcams, independent news'),
     t('survival', 'Survival Hub', Siren, 'human', 'Emergency plans, radio, checklists'),
     t('humanitarian', 'Humanitarian', HeartHandshake, 'human', 'NGO and aid work'),
     t('education', 'Education', GraduationCap, 'human', 'Learn and teach'),
@@ -100,7 +101,7 @@ export const clusters: Cluster[] = [
     defaultTool: 'workstation',
     sections: [
       section('My Space', ['workstation', 'notifications', 'actions', 'desktop']),
-      section('Safety & Trust', ['ethics', 'survival', 'trust-screening', 'security']),
+      section('Safety & Trust', ['ethics', 'osint', 'survival', 'trust-screening', 'security']),
       section('Create & Invent', ['creative', 'innovation', 'invention', 'templates']),
       section('Help & Learn', ['humanitarian', 'education', 'communication', 'specialized']),
     ],

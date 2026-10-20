@@ -32,6 +32,7 @@ import { AIInsightsEngine } from '../insights/AIInsightsEngine';
 import { TemplateManager } from '../templates/TemplateManager';
 import { InnovationCenter } from '../innovation/InnovationCenter';
 import { SkillCenter } from '../skills/SkillCenter';
+import { OsintDashboard } from '../osint/OsintDashboard';
 import { EthicsTransparencyCenter } from '../ethics/EthicsTransparencyCenter';
 import { mockSocialMediaAgents } from '@/data/mockSocialMediaData';
 import { mockHumanitarianProjects, mockCrisisAlerts } from '@/data/mockHumanitarianData';
@@ -159,6 +160,8 @@ export const DashboardTabs = ({ activeTab, mockAgents, mockTasks }: DashboardTab
         return <AIInsightsEngine />;
       case 'security':
         return <SecurityCenter />;
+      case 'osint':
+        return <OsintDashboard />;
       case 'trust-screening':
         return <TrustScreeningCenter />;
       case 'survival':
