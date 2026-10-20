@@ -9,7 +9,7 @@ import {
   MonitorSmartphone, LayoutDashboard, Target, Briefcase, Users, MessageSquare, Mic,
   ClipboardCheck, Zap, Brain, Bot, ShieldHalf, Wand2, WifiOff, Palette, Megaphone,
   Smartphone, Globe, FlaskConical, Lightbulb, FileText, Plug, RefreshCw, HeartPulse,
-  Radar, TrendingUp, UserRound, Cpu, Sparkles, type LucideIcon,
+  Radar, TrendingUp, UserRound, Cpu, Sparkles, Scale, type LucideIcon,
 } from 'lucide-react';
 
 export type ClusterId = 'human' | 'collaborative' | 'agentic';
@@ -36,6 +36,7 @@ export const toolRegistry: Record<string, NavTool> = Object.fromEntries(
     t('security', 'Security Center', ShieldCheck, 'human', 'Protect accounts and data'),
     t('notifications', 'Notifications', Bell, 'human', 'Alerts and updates'),
     t('desktop', 'Desktop Apps', MonitorSmartphone, 'human', 'Installable apps'),
+    t('ethics', 'Ethics & Transparency', Scale, 'collaborative', 'Safety rules, emergency stop, human approvals'),
     t('overview', 'Overview', LayoutDashboard, 'collaborative', 'Everything at a glance'),
     t('mission', 'Mission Control', Target, 'collaborative', 'Goals and missions'),
     t('boardroom', 'Boardroom', Briefcase, 'collaborative', 'Decide together with agents'),
@@ -99,7 +100,7 @@ export const clusters: Cluster[] = [
     defaultTool: 'workstation',
     sections: [
       section('My Space', ['workstation', 'notifications', 'actions', 'desktop']),
-      section('Safety & Trust', ['survival', 'trust-screening', 'security']),
+      section('Safety & Trust', ['ethics', 'survival', 'trust-screening', 'security']),
       section('Create & Invent', ['creative', 'innovation', 'invention', 'templates']),
       section('Help & Learn', ['humanitarian', 'education', 'communication', 'specialized']),
     ],
@@ -112,8 +113,9 @@ export const clusters: Cluster[] = [
     defaultTool: 'overview',
     sections: [
       section('Plan & Decide', ['overview', 'mission', 'boardroom']),
+      section('Ethics & Safety', ['ethics', 'evaluation']),
       section('Work Together', ['collaboration', 'communication', 'voice']),
-      section('Review & Learn', ['evaluation', 'insights', 'analytics']),
+      section('Review & Learn', ['insights', 'analytics']),
     ],
   }),
   cluster({
@@ -123,7 +125,7 @@ export const clusters: Cluster[] = [
     tagline: 'Autonomous agents, models, automation and generation',
     defaultTool: 'agents',
     sections: [
-      section('Agents & Skills', ['agents', 'skills', 'specialized', 'designer', 'offline']),
+      section('Agents & Skills', ['ethics', 'agents', 'skills', 'specialized', 'designer', 'offline']),
       section('Generate', ['creative', 'marketing', 'social', 'web', 'innovation', 'invention', 'templates']),
       section('Automate', ['integrations', 'ifttt', 'actions']),
       section('Operate', ['health', 'monitoring', 'analytics']),

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
-import { ChevronRight, Search, X } from 'lucide-react';
+import { ChevronRight, Search, X, ShieldAlert } from 'lucide-react';
+import { humanAlerts, useSafety } from '@/lib/safety/safetyStore';
 import { cn } from '@/lib/utils';
 import {
   allTools,
@@ -20,6 +21,8 @@ const clusterLabel = (id: ClusterId) => clusters.find((c) => c.id === id)!.label
 export const DashboardNavigation = ({ activeTab, setActiveTab }: DashboardNavigationProps) => {
   const [activeCluster, setActiveCluster] = useState<ClusterId>(findClusterForTool(activeTab));
   const [query, setQuery] = useState('');
+  const safety = useSafety();
+  const alertCount = humanAlerts(safety).length;
   // Remember the last tool opened inside each center
   const [lastTool, setLastTool] = useState<Record<ClusterId, string>>(
     Object.fromEntries(clusters.map((c) => [c.id, c.defaultTool])) as Record<ClusterId, string>
@@ -55,6 +58,19 @@ export const DashboardNavigation = ({ activeTab, setActiveTab }: DashboardNaviga
 
   return (
     <nav className="mb-6 space-y-3" aria-label="Main navigation">
+      {(alertCount > 0 || safety.paused) && (
+        <button
+          onClick={() => openTool('ethics', activeCluster === 'agentic' ? 'collaborative' : activeCluster)}
+          className="flex w-full items-center gap-3 rounded-xl border border-red-300 bg-red-50 p-3 text-left text-sm text-red-800 hover:bg-red-100"
+        >
+          <ShieldAlert className="h-5 w-5 shrink-0" />
+          <span>
+            {safety.paused && <strong>Emergency stop is on. </strong>}
+            {alertCount > 0 && <>Human attention needed: {alertCount} safety signal{alertCount > 1 ? 's' : ''} from agents.</>}
+            <span className="ml-1 underline">Open Ethics & Transparency</span>
+          </span>
+        </button>
+      )}
       {/* Quick finder */}
       <div className="relative">
         <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-purple-500" />

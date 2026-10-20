@@ -32,6 +32,7 @@ import { AIInsightsEngine } from '../insights/AIInsightsEngine';
 import { TemplateManager } from '../templates/TemplateManager';
 import { InnovationCenter } from '../innovation/InnovationCenter';
 import { SkillCenter } from '../skills/SkillCenter';
+import { EthicsTransparencyCenter } from '../ethics/EthicsTransparencyCenter';
 import { mockSocialMediaAgents } from '@/data/mockSocialMediaData';
 import { mockHumanitarianProjects, mockCrisisAlerts } from '@/data/mockHumanitarianData';
 import { mockWebAgents, mockWebProjects } from '@/data/mockWebData';
@@ -191,6 +192,8 @@ export const DashboardTabs = ({ activeTab, mockAgents, mockTasks }: DashboardTab
         return <BoardroomCenter settings={mockBoardroomSettings} />;
       case 'agents':
         return <AgentFrameworkCenter />;
+      case 'ethics':
+        return <EthicsTransparencyCenter />;
       case 'skills':
         return <SkillCenter />;
       case 'specialized':
