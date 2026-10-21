@@ -6,6 +6,14 @@
 
 @layer base {
   :root {
+    --brand-cyan: 190 100% 45%;
+    --brand-blue: 218 100% 53%;
+    --brand-violet: 273 91% 58%;
+    --brand-ink: 230 20% 8%;
+    --brand-silver: 215 20% 85%;
+    --brand-foreground: 0 0% 100%;
+    --brand-gradient: linear-gradient(110deg, hsl(var(--brand-cyan)), hsl(var(--brand-blue)) 55%, hsl(var(--brand-violet)));
+    --signal: 36 95% 50%;
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
@@ -15,7 +23,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 218 85% 43%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -32,7 +40,7 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 190 100% 45%;
 
     --radius: 0.5rem;
 
@@ -63,8 +71,8 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 190 100% 45%;
+    --primary-foreground: 230 20% 8%;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -91,6 +99,18 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
+
+@layer utilities {
+  .bg-brand-gradient { background-image: var(--brand-gradient); }
+  .text-brand-gradient { background-image: var(--brand-gradient); background-clip: text; color: transparent; }
+}
+
+.world-map { height: 520px; width: 100%; z-index: 0; background: hsl(var(--muted)); }
+.world-map .leaflet-popup-content-wrapper, .world-map .leaflet-popup-tip { background: hsl(var(--card)); color: hsl(var(--card-foreground)); }
+.world-map .leaflet-control a { background: hsl(var(--card)); color: hsl(var(--foreground)); }
+.world-map .leaflet-control-attribution { background: hsl(var(--card)); color: hsl(var(--foreground)); }
+.world-map .leaflet-control-attribution a { color: hsl(var(--primary)); }
+@media (max-width: 640px) { .world-map { height: 380px; } }
 
 @layer base {
   * {
