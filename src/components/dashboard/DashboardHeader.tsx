@@ -1,7 +1,8 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Bot, Plus, Settings } from 'lucide-react';
+import { Plus, Settings } from 'lucide-react';
+import officialLogo from '@/assets/ai-vision-official-logo.png.asset.json';
 import { CreateAgentDialog } from './CreateAgentDialog';
 import { SettingsDialog } from './SettingsDialog';
 
@@ -25,19 +26,17 @@ export const DashboardHeader = () => {
     <>
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-4">
         <div className="w-full sm:w-auto">
-          <h1 className="flex items-center gap-3 text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-            <span className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-600 to-blue-600 shadow-md">
-              <Bot className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
-            </span>
+          <h1 className="flex items-center gap-3 text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-gradient">
+            <img src={officialLogo.url} alt="AI Vision Official logo" className="h-20 w-20 sm:h-24 sm:w-24 shrink-0 rounded-lg object-contain bg-brand-ink" />
             <span>{appName}</span>
           </h1>
-          <p className="text-slate-600 dark:text-slate-300 mt-2 text-sm sm:text-base">
+          <p className="text-muted-foreground mt-2 text-sm sm:text-base">
             Orchestrate intelligent agents to accomplish complex tasks
           </p>
         </div>
         <div className="flex gap-2 sm:gap-3 w-full sm:w-auto">
           <Button 
-            className="rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 shadow-md hover:from-purple-700 hover:to-blue-700 flex-1 sm:flex-none"
+            className="rounded-xl shadow-md flex-1 sm:flex-none"
             onClick={() => setIsCreateDialogOpen(true)}
           >
             <Plus className="w-4 h-4 mr-2" />
