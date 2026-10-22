@@ -33,6 +33,7 @@ import { TemplateManager } from '../templates/TemplateManager';
 import { InnovationCenter } from '../innovation/InnovationCenter';
 import { SkillCenter } from '../skills/SkillCenter';
 import { OsintDashboard } from '../osint/OsintDashboard';
+import { WorldViewDashboard } from '../worldView/WorldViewDashboard';
 import { EthicsTransparencyCenter } from '../ethics/EthicsTransparencyCenter';
 import { mockSocialMediaAgents } from '@/data/mockSocialMediaData';
 import { mockHumanitarianProjects, mockCrisisAlerts } from '@/data/mockHumanitarianData';
@@ -162,6 +163,8 @@ export const DashboardTabs = ({ activeTab, mockAgents, mockTasks }: DashboardTab
         return <SecurityCenter />;
       case 'osint':
         return <OsintDashboard />;
+      case 'world-view':
+        return <WorldViewDashboard />;
       case 'trust-screening':
         return <TrustScreeningCenter />;
       case 'survival':
