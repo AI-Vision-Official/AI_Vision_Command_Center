@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { FileAudio, Music, Play, Pause, BarChart3, Trash2 } from 'lucide-react';
 import { toast } from 'sonner';
-import { supabase } from '@/integrations/supabase/client';
+import { saveMedia, removeMedia } from '@/lib/offline/mediaStore';
 
 interface UploadedAudio {
   id: string;
@@ -52,7 +52,7 @@ export const AudioLibrary = ({
     if (audio) {
       try {
         const fileName = `audio/${audioId}-${audio.name}`;
-        await supabase.storage.from('media-files').remove([fileName]);
+        await removeMedia(fileName);
         
         setUploadedAudios(prev => prev.filter(a => a.id !== audioId));
         toast.success('Audio deleted');

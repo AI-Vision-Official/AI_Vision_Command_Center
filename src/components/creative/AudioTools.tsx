@@ -14,7 +14,7 @@ import {
   MessageSquare,
   Music
 } from 'lucide-react';
-import { supabase } from '@/integrations/supabase/client';
+import { saveMedia, removeMedia } from '@/lib/offline/mediaStore';
 import { toast } from 'sonner';
 import { VoiceCloning } from './audio/VoiceCloning';
 import { NoiseReduction } from './audio/NoiseReduction';
@@ -69,15 +69,7 @@ export const AudioTools = ({ agents, settings }: AudioToolsProps) => {
         const audioId = `audio-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
         const fileName = `audio/${audioId}-${file.name}`;
         
-        const { data, error } = await supabase.storage
-          .from('media-files')
-          .upload(fileName, file);
-
-        if (error) throw error;
-
-        const { data: { publicUrl } } = supabase.storage
-          .from('media-files')
-          .getPublicUrl(fileName);
+        const { url: publicUrl } = await saveMedia(fileName, file);
 
         const newAudio: UploadedAudio = {
           id: audioId,

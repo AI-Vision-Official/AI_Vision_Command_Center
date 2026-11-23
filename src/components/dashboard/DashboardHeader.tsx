@@ -5,6 +5,7 @@ import { Plus, Settings } from 'lucide-react';
 import officialLogo from '@/assets/ai-vision-official-logo.png.asset.json';
 import { CreateAgentDialog } from './CreateAgentDialog';
 import { SettingsDialog } from './SettingsDialog';
+import { OfflineControl } from './OfflineControl';
 
 export const DashboardHeader = () => {
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
@@ -43,6 +44,7 @@ export const DashboardHeader = () => {
             <span className="hidden sm:inline">Create Agent</span>
             <span className="sm:hidden">Create</span>
           </Button>
+          <OfflineControl />
           <Button 
             variant="outline"
             className="rounded-xl"

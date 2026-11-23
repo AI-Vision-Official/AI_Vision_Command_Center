@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Upload, HardDrive } from 'lucide-react';
-import { supabase } from '@/integrations/supabase/client';
+import { saveMedia, removeMedia } from '@/lib/offline/mediaStore';
 import { toast } from 'sonner';
 
 interface UploadedVideo {
@@ -118,18 +118,9 @@ export const VideoUploadSection = ({
         } else {
           const fileName = `videos/${videoId}-${file.name}`;
           
-          const { data, error } = await supabase.storage
-            .from('media-files')
-            .upload(fileName, file);
-
-          if (error) throw error;
-
-          const { data: { publicUrl } } = supabase.storage
-            .from('media-files')
-            .getPublicUrl(fileName);
-
-          videoUrl = publicUrl;
-          storageType = 'supabase';
+          const saved = await saveMedia(fileName, file);
+          videoUrl = saved.url;
+          storageType = saved.storage === 'online' ? 'supabase' : 'local';
         }
 
         const duration = await getVideoDuration(file, videoUrl);

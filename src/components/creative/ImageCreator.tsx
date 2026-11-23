@@ -8,7 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { Image, Download, Share, RefreshCw, Palette, Zap, Layers, Brain, Wand2, Share2, Upload, Trash2, Edit } from 'lucide-react';
-import { supabase } from '@/integrations/supabase/client';
+import { saveMedia, removeMedia } from '@/lib/offline/mediaStore';
 import { toast } from 'sonner';
 import { ImageEditor } from './image/ImageEditor';
 import { AIImageProcessor } from './image/AIImageProcessor';
@@ -64,17 +64,7 @@ export const ImageCreator = ({ agents, settings }: ImageCreatorProps) => {
         const imageId = `image-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
         const fileName = `images/${imageId}-${file.name}`;
         
-        // Upload to Supabase Storage
-        const { data, error } = await supabase.storage
-          .from('media-files')
-          .upload(fileName, file);
-
-        if (error) throw error;
-
-        // Get public URL
-        const { data: { publicUrl } } = supabase.storage
-          .from('media-files')
-          .getPublicUrl(fileName);
+        const { url: publicUrl } = await saveMedia(fileName, file);
 
         const newImage: UploadedImage = {
           id: imageId,
@@ -121,7 +111,7 @@ export const ImageCreator = ({ agents, settings }: ImageCreatorProps) => {
       try {
         // Delete from Supabase Storage
         const fileName = `images/${imageId}-${image.name}`;
-        await supabase.storage.from('media-files').remove([fileName]);
+        await removeMedia(fileName);
         
         setUploadedImages(prev => prev.filter(img => img.id !== imageId));
         toast.success('Image deleted');

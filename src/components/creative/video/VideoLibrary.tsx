@@ -14,7 +14,7 @@ import {
   Zap, 
   Share2 
 } from 'lucide-react';
-import { supabase } from '@/integrations/supabase/client';
+import { saveMedia, removeMedia } from '@/lib/offline/mediaStore';
 import { toast } from 'sonner';
 
 interface UploadedVideo {
@@ -73,7 +73,7 @@ export const VideoLibrary = ({
       try {
         if (video.storageType === 'supabase') {
           const fileName = `videos/${videoId}-${video.name}`;
-          await supabase.storage.from('media-files').remove([fileName]);
+          await removeMedia(fileName);
         } else if (video.localPath) {
           URL.revokeObjectURL(video.localPath);
         }
